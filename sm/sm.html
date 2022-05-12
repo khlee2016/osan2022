@@ -1,0 +1,111 @@
+<html>
+<head>
+<title>Slot Machine</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+input, select { height:50px; font-size:25px }
+.a { width:30% }
+.b { height:100px }
+.rr { color: red }
+.bb { color: blue }
+.yy { background-color: yellow }
+</style>
+</head>
+<body>
+<center>
+<form name="form">
+<H1><input type="button" name="autom" value="수동" onclick="automan()" class="bb">
+슬롯머신
+<input type="button" value="재시작" onclick="restart()" class="rr"></H1>
+<IMG src="7.gif" name="first" width=30%>
+<IMG src="7.gif" name="second" width=30%>
+<IMG src="7.gif" name="third" width=30%>
+<br>
+<input type="button" value="STOP" name="firstb" onClick=end(1) class="a rr">
+<input type="button" value="STOP" name="secondb" onClick=end(2) class="a rr">
+<input type="button" value="STOP" name="thirdb" onClick=end(3) class="a rr">
+<br><br>
+<input type="button" value="남은 COIN">
+<input type="text" size=1 value=100 name="remcoin" class="yy">
+<input type="button" value="베팅">
+<SELECT NAME="selct" SIZE="1" class="yy">
+<OPTION>10 COIN
+<OPTION>20 COIN
+<OPTION>30 COIN
+<OPTION>40 COIN
+<OPTION>50 COIN
+</SELECT><br><br>
+<input type="button" value=" START " onClick=startGame() style="width:40%" class="b bb">
+<input type="button" value="ALL(3)STOP" onClick="end(1);end(2);end(3)" class="b rr">
+<br><br>
+<input type="text" size=18 name="pay_back"class="yy"><br>
+<input type="checkbox" id="sori" style="height:10">
+<label for="sori">조용히 게임하기</label>
+</form>
+</center>
+
+<SCRIPT>
+coin = 100
+bet = 1
+game = false
+box1 = true
+box2 = true
+box3 = true
+num = Math.floor(Math.random() * 10)
+autog = false
+
+IMG = new Array();
+IMG[0] = new Image(); IMG[0].src = "0.gif";
+IMG[1] = new Image(); IMG[1].src = "1.gif";
+IMG[2] = new Image(); IMG[2].src = "2.gif";
+IMG[3] = new Image(); IMG[3].src = "3.gif";
+IMG[4] = new Image(); IMG[4].src = "4.gif";
+IMG[5] = new Image(); IMG[5].src = "5.gif";
+IMG[6] = new Image(); IMG[6].src = "6.gif";
+IMG[7] = new Image(); IMG[7].src = "7.gif";
+IMG[8] = new Image(); IMG[8].src = "8.gif";
+IMG[9] = new Image(); IMG[9].src = "9.gif";
+
+function restart(){
+
+}
+
+function automan(){
+
+}
+
+function autoStart(){
+
+}
+
+var audio = new Audio("slotmachine.wav")
+var audio2 = new Audio("dingdong.wav")
+function playAudio() {
+
+}
+function playAudio2() {
+
+}
+
+function result(){
+
+}
+
+function end(variable){
+
+}
+
+function runrunrun(){
+
+}
+
+function inCoin(){
+
+}
+
+function startGame(){
+
+}
+</SCRIPT>
+</body>
+</html>
