@@ -1,0 +1,49 @@
+<html>
+<body>
+
+<div style="width:30vw;">
+  <canvas id="myChart"></canvas>
+</div>
+
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<script>
+  const mydata = [70, 60, 55, 42, 30, 20, 15];
+  const labels = ['January','February','March','April','May','June', 'July'];
+
+  const data = {
+    labels: labels,
+    datasets: [{
+      label: 'My First dataset',
+      //backgroundColor: 'rgb(255, 99, 132)',
+      //borderColor: 'rgb(255, 99, 132)',
+      backgroundColor: ['gray','Red','Orange','Yellow','Green','Blue','violet','pink'],
+      borderColor: 'white',
+      data: mydata,
+    }]
+  };
+
+  const config = {
+    type: 'doughnut', //'pie', // 'line', 'bar'
+    data: data,
+    //options: {}
+  };
+
+  const myChart = new Chart(
+    document.getElementById('myChart'),
+    config
+  );
+  
+  //data.datasets[0].data = [3,3,3,3,3,3,3]
+  mydata[0] = 83
+  mydata[1] = 73
+  mydata[2] = 63
+  //mydata = [1,2,3,4,5,6]
+  myChart.update();
+</script>
+
+</body>
+</html>
+ 
+ 
