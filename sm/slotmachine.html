@@ -1,6 +1,7 @@
 <html>
 <head>
 <title>Slot Machine</title>
+<meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <style>
 input, select { height:50px; font-size:25px }
@@ -14,9 +15,9 @@ input, select { height:50px; font-size:25px }
 <body>
 <center>
 <form name="form">
-<H1><input type="button" name="autom" value="¼öµ¿" onclick="automan()" class="bb">
-½½·Ô¸Ó½Å
-<input type="button" value="Àç½ÃÀÛ" onclick="restart()" class="rr"></H1>
+<H1><input type="button" name="autom" value="ìˆ˜ë™" onclick="automan()" class="bb">
+ìŠ¬ë¡¯ë¨¸ì‹ 
+<input type="button" value="ì¬ì‹œì‘" onclick="restart()" class="rr"></H1>
 <IMG src="7.gif" name="first" width=30%>
 <IMG src="7.gif" name="second" width=30%>
 <IMG src="7.gif" name="third" width=30%>
@@ -25,9 +26,9 @@ input, select { height:50px; font-size:25px }
 <input type="button" value="STOP" name="secondb" onClick=end(2) class="a rr">
 <input type="button" value="STOP" name="thirdb" onClick=end(3) class="a rr">
 <br><br>
-<input type="button" value="³²Àº COIN">
+<input type="button" value="ë‚¨ì€ COIN">
 <input type="text" size=1 value=100 name="remcoin" class="yy">
-<input type="button" value="º£ÆÃ">
+<input type="button" value="ë² íŒ…">
 <SELECT NAME="selct" SIZE="1" class="yy">
 <OPTION>10 COIN
 <OPTION>20 COIN
@@ -40,7 +41,7 @@ input, select { height:50px; font-size:25px }
 <br><br>
 <input type="text" size=18 name="pay_back"class="yy"><br>
 <input type="checkbox" id="sori" style="height:10">
-<label for="sori">Á¶¿ëÈ÷ °ÔÀÓÇÏ±â</label>
+<label for="sori">ì¡°ìš©íˆ ê²Œì„í•˜ê¸°</label>
 </form>
 </center>
 
@@ -79,11 +80,11 @@ function restart(){
 function automan(){
   if ( autog ) {
     autog = false
-    document.form.autom.value = "¼öµ¿"
+    document.form.autom.value = "ìˆ˜ë™"
   }
   else {
     autog = true
-    document.form.autom.value = "ÀÚµ¿"
+    document.form.autom.value = "ìë™"
   }
 }
 
@@ -112,20 +113,20 @@ function result(){
 		document.images["third"].src = "7.gif"
 		coin = 100;
 		playAudio2()
-		document.form.pay_back.value="ÃàÇÏ~ ÃàÇÏ~ " + 50 + "ÄÚÀÎ ¶£¾î¿ä"
+		document.form.pay_back.value="ì¶•í•˜~ ì¶•í•˜~ " + 50 + "ì½”ì¸ ë•ƒì–´ìš”"
 	}
 	else if((document.images["first"].src == document.images["second"].src) && (document.images["second"].src == document.images["third"].src) && (document.images["third"].src == IMG[7].src)){
 		coin += bet * 10; 
-		document.form.pay_back.value="¿Í¿ì~ ´ë´ÜÇÏ³×¿ä~ " + (bet*10) + " ÄÚÀÎ ¶£¾î¿ä"
+		document.form.pay_back.value="ì™€ìš°~ ëŒ€ë‹¨í•˜ë„¤ìš”~ " + (bet*10) + " ì½”ì¸ ë•ƒì–´ìš”"
 		playAudio2()
 	}
 	else if((document.images["first"].src == document.images["second"].src) && (document.images["second"].src == document.images["third"].src)){
 		coin += bet * 5; 
-		document.form.pay_back.value="¾Æ½Î~ " + (bet*5) + " ÄÚÀÎ ¹ú¾ú¾î¿ä"
+		document.form.pay_back.value="ì•„ì‹¸~ " + (bet*5) + " ì½”ì¸ ë²Œì—ˆì–´ìš”"
 		playAudio2()
 	} else {
 		coin -= bet
-		document.form.pay_back.value="ÀÌ·±~ ÄÚÀÎ¸¸ ³¯·È³×¿ä~"
+		document.form.pay_back.value="ì´ëŸ°~ ì½”ì¸ë§Œ ë‚ ë ¸ë„¤ìš”~"
 	}
 	document.form.remcoin.value = coin
 	game = false
@@ -167,11 +168,11 @@ function inCoin(){
   else if (document.form.selct.options[5].selected) bet = 100;
 
   if((coin-bet) < 0){
-	  document.form.pay_back.value="ÄÚÀÎ ºÎÁ·~ Á» ½¬¾ú´ÙÇØ¿ä~ ¤¾";
+	  document.form.pay_back.value="ì½”ì¸ ë¶€ì¡±~ ì¢€ ì‰¬ì—ˆë‹¤í•´ìš”~ ã…";
 	  game = false
 	}
   else if (bet > 0){
-	  document.form.pay_back.value="ÀÌ¹ø º£ÆÃ~~Àº " + bet + "ÄÚÀÎ"
+	  document.form.pay_back.value="ì´ë²ˆ ë² íŒ…~~ì€ " + bet + "ì½”ì¸"
 	  runrunrun()
 	}
 }
@@ -179,7 +180,7 @@ function inCoin(){
 function startGame(){
    if(game == false){
         if (coin <= 0){
-           document.form.pay_back.value="³¡~~ ÄÚÀÎÀÌ ´Ù ¶³¾îÁ³³×¿ä."
+           document.form.pay_back.value="ë~~ ì½”ì¸ì´ ë‹¤ ë–¨ì–´ì¡Œë„¤ìš”."
         }else{
            game = true
            inCoin()
