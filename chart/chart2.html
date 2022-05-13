@@ -1,0 +1,86 @@
+<html>
+<body>
+<center>
+<div style="width:80vw;">
+  <canvas id="myChart"></canvas>
+</div>
+<div>
+<button onclick='settype("bar")'>Bar</button>
+<button onclick='settype("pie")'>Pie</button>
+<button onclick='settype("doughnut")'>Doughnut</button>
+<button onclick='settype("line")'>Line</button>
+<button onclick='update()'>수동업데이트</button>
+<button onclick='autoupdate()'>자동업데이트</button>
+<button onclick='add_data()'>추가</button>
+</div>
+</center>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<script>
+  const mydata = [25, 95, 35, 85, 15, 90, 20];
+  const labels = ['January','February','March','April','May','June', 'July'];
+
+  const data = {
+    labels: labels,
+    datasets: [{
+      label: 'My Data Graph',
+      //backgroundColor: 'rgb(255, 99, 132)',
+      //borderColor: 'rgb(255, 99, 132)',
+      backgroundColor: ['gray','Red','Orange','Yellow','Green','Blue','violet','pink'],
+      borderColor: 'blue',
+      data: mydata,
+      tension: 0.5
+    }]
+  };
+
+  const config = {
+    type: 'line',        //'doughnut', //'pie', // 'line', 'bar'
+    data: data,
+    //options: {}
+  };
+
+  const myChart = new Chart(
+    document.getElementById('myChart'),
+    config
+  );
+  
+  var tid = null
+  function update() {
+     if ( tid ) {
+        clearInterval(tid)
+        tid = null
+     }
+     updateOne()
+  }
+
+  function updateOne() {
+     for ( let i=0 ; i<mydata.length ; i++ ) {
+        mydata[i] = Math.floor(Math.random() * 100)
+     }
+     myChart.update();
+  }
+
+  function autoupdate() {
+     if ( tid ) clearInterval(tid)
+     tid = setInterval(updateOne, 1000)
+  }
+
+  function add_data() {
+     let localtime = new Date()
+		 let ltime = localtime.toLocaleString('ko-KR',{timeZone:'Asia/Seoul'})
+		 data.labels.push(ltime)
+     data.datasets[0].data.push(Math.floor(Math.random() * 100))
+     myChart.update()
+  }
+
+  function settype(bartype) {
+     config.type = bartype
+     myChart.update()
+  }
+</script>
+
+</body>
+</html>
+ 
+ 
