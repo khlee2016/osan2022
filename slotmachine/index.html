@@ -1,7 +1,7 @@
-<html><head><meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
-<title>½½·Ô¸Ó½Å</title>
+<html><head>
+<title>ìŠ¬ë¡¯ë¨¸ì‹ </title>
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<meta charset="ansi">
+<meta charset="UTF-8">
 <style>
 input { height:50px; font-size:25px }
 .a { width: 30% }
@@ -11,7 +11,7 @@ input { height:50px; font-size:25px }
 <body>
 <center>
 <form name="form">
-<h1>½½·Ô¸Ó½Å</h1><h1>
+<h1>ìŠ¬ë¡¯ë¨¸ì‹ </h1><h1>
 <img src="7.gif" name="first" width="30%">
 <img src="7.gif" name="second" width="30%">
 <img src="7.gif" name="third" width="30%"><br>
@@ -23,7 +23,7 @@ input { height:50px; font-size:25px }
 <input type="button" value="ALL(3)STOP" onclick="allStop()" class="b">
 <br><br>
 <input type="checkbox" id="sori" style="height:10">
-<label for="sori">ÁÒ¿ëÈ÷</label> <input type="text" id="result" size=8 style="height:45">
+<label for="sori">ì£ ìš©íˆ</label> <input type="text" id="result" size=8 style="height:45">
 </h1></form></center>
 <script>
 game = false
@@ -62,11 +62,11 @@ function result(){
   if ( (document.images["first"].src == document.images["second"].src)  &&
             (document.images["first"].src == document.images["third"].src) ) {
       playAudio2();
-      document.getElementById('result').value = "ÃàÇÏÇÕ´Ï´Ù~*"
+      document.getElementById('result').value = "ì¶•í•˜í•©ë‹ˆë‹¤~*"
   }
   else {
       playAudio3()
-      document.getElementById('result').value = "´ÙÀ½ ±âÈ¸¿¡~"
+      document.getElementById('result').value = "ë‹¤ìŒ ê¸°íšŒì—~"
   }
 }
 function end(num){
