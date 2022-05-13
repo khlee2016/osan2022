@@ -1,31 +1,43 @@
 <html>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+  </head>
 <body>
-
-<div style="width:30vw;">
+<center>
+<div style="width:80vw;">
   <canvas id="myChart"></canvas>
 </div>
-
+<div>
+<button onclick='settype("bar")'>Bar</button>
+<button onclick='settype("pie")'>Pie</button>
+<button onclick='settype("doughnut")'>Doughnut</button>
+<button onclick='settype("line")'>Line</button>
+<button onclick='update()'>업데이트</button>
+</div>
+</center>
 
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
 <script>
-  const mydata = [70, 60, 55, 42, 30, 20, 15];
+  const mydata = [25, 95, 35, 85, 15, 90, 20];
   const labels = ['January','February','March','April','May','June', 'July'];
 
   const data = {
     labels: labels,
     datasets: [{
-      label: 'My First dataset',
+      label: 'My Data Graph',
       //backgroundColor: 'rgb(255, 99, 132)',
       //borderColor: 'rgb(255, 99, 132)',
       backgroundColor: ['gray','Red','Orange','Yellow','Green','Blue','violet','pink'],
-      borderColor: 'white',
+      borderColor: 'blue',
       data: mydata,
+      tension: 0.5
     }]
   };
 
   const config = {
-    type: 'bar',    //'doughnut', //'pie', // 'line', 'bar'
+    type: 'line',        //'doughnut', //'pie', // 'line', 'bar'
     data: data,
     //options: {}
   };
@@ -36,11 +48,21 @@
   );
   
   //data.datasets[0].data = [3,3,3,3,3,3,3]
-  mydata[0] = 83
-  mydata[1] = 73
-  mydata[2] = 63
-  //mydata = [1,2,3,4,5,6]
-  myChart.update();
+  function update() {
+     for ( let i=0 ; i<mydata.length ; i++ ) {
+        mydata[i] = Math.floor(Math.random() * 100)
+     }
+     //mydata[0] = 83
+     //mydata[1] = 73
+     //mydata[2] = 63
+     //mydata = [1,2,3,4,5,6]
+     myChart.update();
+  }
+  
+  function settype(bartype) {
+     config.type = bartype
+     myChart.update()
+  }
 </script>
 
 </body>
